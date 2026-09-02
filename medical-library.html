@@ -1,361 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Library | HealthSphere Africa</title>
 
-    <title>Medical Library | HealthSphere Africa</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f9f8;
+      color: #163b4d;
+    }
 
-    <meta name="description"
-          content="HealthSphere Africa Medical Library - Explore health information, diseases, symptoms, pregnancy, laboratory tests and healthy living.">
+    header {
+      background: #07875f;
+      color: white;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f9f8;
-            color: #173b3f;
-            line-height: 1.6;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+    }
 
-        header {
-            background: #087f5b;
-            color: white;
-            padding: 18px 7%;
-        }
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: white;
+    }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-        }
+    .hero p {
+      font-size: 18px;
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.7;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-        }
+    .search-box {
+      text-align: center;
+      margin: 30px auto;
+    }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+    .search-box input {
+      width: 80%;
+      max-width: 600px;
+      padding: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
 
-        .hero {
-            background: white;
-            text-align: center;
-            padding: 65px 7%;
-        }
+    .library {
+      padding: 40px 7%;
+    }
 
-        .hero h1 {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
+    .library h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 35px;
+    }
 
-        .hero p {
-            max-width: 750px;
-            margin: auto;
-            color: #607477;
-            font-size: 18px;
-        }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
 
-        .library {
-            padding: 55px 7%;
-        }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
 
-        .library-intro {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
-        .library-intro h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
+    .card h3 {
+      color: #07875f;
+      margin-top: 0;
+    }
 
-        .library-intro p {
-            color: #607477;
-        }
+    .card p {
+      line-height: 1.6;
+    }
 
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #07875f;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-        .category {
-            background: white;
-            padding: 28px;
-            border-radius: 10px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-        }
+    footer {
+      background: #163b4d;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
 
-        .category h3 {
-            color: #087f5b;
-            margin-bottom: 10px;
-            font-size: 21px;
-        }
+    @media (max-width: 600px) {
+      header {
+        text-align: center;
+        justify-content: center;
+      }
 
-        .category p {
-            color: #607477;
-            margin-bottom: 18px;
-        }
+      nav {
+        margin-top: 15px;
+      }
 
-        .category a {
-            display: inline-block;
-            background: #087f5b;
-            color: white;
-            text-decoration: none;
-            padding: 9px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-        }
+      nav a {
+        margin: 8px;
+        display: inline-block;
+      }
 
-        .category a:hover {
-            opacity: 0.85;
-        }
-
-        .notice {
-            margin-top: 45px;
-            background: #e9f6f1;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .notice h3 {
-            margin-bottom: 8px;
-        }
-
-        .notice p {
-            color: #52666a;
-        }
-
-        footer {
-            background: #123b3e;
-            color: white;
-            text-align: center;
-            padding: 25px 7%;
-            margin-top: 30px;
-        }
-
-        footer p {
-            margin: 5px;
-        }
-
-        @media (max-width: 800px) {
-
-            .navbar {
-                flex-direction: column;
-            }
-
-            nav a {
-                margin: 5px;
-                display: inline-block;
-            }
-
-            .categories {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .categories {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+      .hero h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
+  <h1>HealthSphere Africa</h1>
 
-    <div class="navbar">
-
-        <div class="logo">
-            HealthSphere Africa
-        </div>
-
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="medical-library.html">Medical Library</a>
-            <a href="index.html#topics">Health Topics</a>
-            <a href="index.html#about">About</a>
-        </nav>
-
-    </div>
-
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="medical-library.html">Medical Library</a>
+    <a href="about.html">About</a>
+  </nav>
 </header>
 
+<section class="hero">
+  <h2>Medical Library</h2>
 
-<main>
+  <p>
+    Explore reliable and easy-to-understand health information
+    about diseases, symptoms, prevention, treatment and healthy living.
+  </p>
 
-    <section class="hero">
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search the medical library..."
+      onkeyup="searchLibrary()"
+    >
+  </div>
+</section>
 
-        <h1>Medical Library</h1>
+<section class="library">
 
-        <p>
-            Explore clear and accessible health information about
-            diseases, symptoms, pregnancy, medicines, laboratory tests,
-            prevention and healthy living.
-        </p>
+  <h2>Explore Health Information</h2>
 
-    </section>
+  <div class="categories" id="libraryCards">
 
+    <div class="card">
+      <h3>🦠 Infectious Diseases</h3>
+      <p>
+        Learn about malaria, typhoid fever, tuberculosis, HIV,
+        measles, tetanus and other infectious diseases.
+      </p>
+      <a href="#">Explore topics →</a>
+    </div>
 
-    <section class="library">
+    <div class="card">
+      <h3>❤️ Heart & Blood Pressure</h3>
+      <p>
+        Understand hypertension, heart diseases, risk factors,
+        warning signs and prevention.
+      </p>
+      <a href="#">Explore topics →</a>
+    </div>
 
-        <div class="library-intro">
+    <div class="card">
+      <h3>🤰 Pregnancy & Maternal Health</h3>
+      <p>
+        Information about pregnancy, antenatal care, common
+        pregnancy conditions, childbirth and postpartum health.
+      </p>
+      <a href="#">Explore topics →</a>
+    </div>
 
-            <h2>Explore Our Health Categories</h2>
+    <div class="card">
+      <h3>👶 Child Health</h3>
+      <p>
+        Learn about childhood illnesses, immunization, nutrition,
+        growth and development.
+      </p>
+      <a href="#">Explore topics →</a>
+    </div>
 
-            <p>
-                Select a category to discover health information.
-            </p>
+    <div class="card">
+      <h3>🧪 Laboratory Tests</h3>
+      <p>
+        Understand common laboratory investigations such as
+        full blood count, malaria tests, urinalysis and blood sugar.
+      </p>
+      <a href="#">Explore tests →</a>
+    </div>
 
-        </div>
+    <div class="card">
+      <h3>🧠 Brain & Nervous System</h3>
+      <p>
+        Explore educational information about the brain,
+        seizures, headaches, stroke and nervous-system health.
+      </p>
+      <a href="#">Explore topics →</a>
+    </div>
 
+    <div class="card">
+      <h3>💊 Medicines & Treatment</h3>
+      <p>
+        Learn how commonly used medicines work, their purposes,
+        precautions and the importance of professional advice.
+      </p>
+      <a href="#">Explore medicines →</a>
+    </div>
 
-        <div class="categories">
+    <div class="card">
+      <h3>🥗 Healthy Living</h3>
+      <p>
+        Discover information about nutrition, physical activity,
+        sleep, hygiene and disease prevention.
+      </p>
+      <a href="#">Explore topics →</a>
+    </div>
 
-            <div class="category">
-                <h3>Diseases & Conditions</h3>
-                <p>
-                    Learn about common diseases, their symptoms,
-                    causes, diagnosis, treatment and prevention.
-                </p>
-                <a href="#">Explore</a>
-            </div>
+  </div>
 
-
-            <div class="category">
-                <h3>Symptoms</h3>
-                <p>
-                    Understand common symptoms and learn when
-                    professional medical attention may be necessary.
-                </p>
-                <a href="#">Explore</a>
-            </div>
-
-
-            <div class="category">
-                <h3>Pregnancy & Maternal Health</h3>
-                <p>
-                    Information about pregnancy, antenatal care,
-                    pregnancy conditions, delivery and maternal health.
-                </p>
-                <a href="#">Explore</a>
-            </div>
-
-
-            <div class="category">
-                <h3>Child & Newborn Health</h3>
-                <p>
-                    Learn about newborn care, childhood illnesses,
-                    immunization and child health.
-                </p>
-                <a href="#">Explore</a>
-            </div>
-
-
-            <div class="category">
-                <h3>Medicines</h3>
-                <p>
-                    Educational information about medicines,
-                    their uses, precautions and safe use.
-                </p>
-                <a href="#">Explore</a>
-            </div>
-
-
-            <div class="category">
-                <h3>Laboratory Tests</h3>
-                <p>
-                    Understand common laboratory investigations
-                    and what different test results may indicate.
-                </p>
-                <a href="#">Explore</a>
-            </div>
-
-
-            <div class="category">
-                <h3>Healthy Living</h3>
-                <p>
-                    Learn about nutrition, physical activity,
-                    sleep and healthy lifestyle choices.
-                </p>
-                <a href="#">Explore</a>
-            </div>
-
-
-            <div class="category">
-                <h3>Prevention</h3>
-                <p>
-                    Discover practical ways to reduce the risk
-                    of diseases and promote good health.
-                </p>
-                <a href="#">Explore</a>
-            </div>
-
-
-            <div class="category">
-                <h3>Emergency & First Aid</h3>
-                <p>
-                    Basic educational information about common
-                    emergencies and first-aid situations.
-                </p>
-                <a href="#">Explore</a>
-            </div>
-
-        </div>
-
-
-        <div class="notice">
-
-            <h3>Important Health Information</h3>
-
-            <p>
-                HealthSphere Africa provides educational information
-                and does not replace examination, diagnosis or treatment
-                by a qualified healthcare professional.
-            </p>
-
-        </div>
-
-    </section>
-
-</main>
-
+</section>
 
 <footer>
-
-    <p><strong>HealthSphere Africa</strong></p>
-
-    <p>
-        Health Education • Healthcare • Telemedicine
-    </p>
-
-    <p>
-        &copy; 2026 HealthSphere Africa. All rights reserved.
-    </p>
-
+  © 2026 HealthSphere Africa. All rights reserved.
 </footer>
+
+<script>
+function searchLibrary() {
+  const input = document.getElementById("searchInput");
+  const filter = input.value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+
+    if (text.includes(filter)) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+</script>
 
 </body>
 </html>
