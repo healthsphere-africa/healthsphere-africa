@@ -3,47 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthSphere Africa</title>
-    <meta name="description" content="HealthSphere Africa - Health education, medical information and healthcare services.">
+
+    <title>HealthSphere Africa | Health Education & Healthcare</title>
+
+    <meta name="description"
+          content="HealthSphere Africa provides accessible health education, medical information and healthcare resources for everyone.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f5f9f8;
+            color: #173b3f;
+        }
+
+        header {
+            background: #087f5b;
+            color: white;
+            padding: 18px 7%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            padding: 80px 7%;
+            background: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            color: #52666a;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 25px;
+            background: #087f5b;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 55px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #607477;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #087f5b;
+        }
+
+        .card p {
+            color: #607477;
+            font-size: 15px;
+        }
+
+        .about {
+            background: #e9f6f1;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            color: #52666a;
+        }
+
+        footer {
+            background: #123b3e;
+            color: white;
+            text-align: center;
+            padding: 25px 7%;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 5px;
+                display: inline-block;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <h1>HealthSphere Africa</h1>
-        <p>Health Education • Healthcare • Telemedicine</p>
-    </header>
 
-    <main>
-        <section>
-            <h2>Welcome to HealthSphere Africa</h2>
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            HealthSphere Africa
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#topics">Health Topics</a>
+            <a href="#library">Medical Library</a>
+            <a href="#about">About</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <section class="hero" id="home">
+
+        <h1>Your Health. Your Knowledge. Your Future.</h1>
+
+        <p>
+            HealthSphere Africa is a digital health education platform
+            designed to make reliable health information easier to understand
+            and accessible to everyone.
+        </p>
+
+        <a href="#topics" class="hero-button">
+            Explore Health Topics
+        </a>
+
+    </section>
+
+
+    <section id="topics">
+
+        <div class="section-title">
+
+            <h2>Explore Health Topics</h2>
+
             <p>
-                Your trusted platform for accessible and understandable
-                health information.
+                Learn about diseases, symptoms, prevention and healthy living.
             </p>
-        </section>
 
-        <section>
-            <h2>Medical Education</h2>
-            <p>Learn about diseases, symptoms, prevention and healthy living.</p>
-        </section>
+        </div>
 
-        <section>
-            <h2>Health Topics</h2>
-            <ul>
-                <li>Malaria</li>
-                <li>Typhoid Fever</li>
-                <li>Hypertension</li>
-                <li>Heart Diseases</li>
-                <li>Pregnancy and Maternal Health</li>
-                <li>Tuberculosis</li>
-                <li>HIV and STIs</li>
-                <li>Laboratory Tests</li>
-            </ul>
-        </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 HealthSphere Africa. All rights reserved.</p>
-    </footer>
+        <div class="cards">
+
+            <div class="card">
+                <h3>Malaria</h3>
+                <p>
+                    Learn about malaria symptoms, prevention,
+                    testing and treatment.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>Hypertension</h3>
+                <p>
+                    Understand high blood pressure, risk factors,
+                    prevention and management.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>Heart Health</h3>
+                <p>
+                    Explore heart diseases, warning signs,
+                    prevention and healthy living.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>Pregnancy & Maternal Health</h3>
+                <p>
+                    Learn about pregnancy, antenatal care,
+                    maternal conditions and newborn health.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>Typhoid Fever</h3>
+                <p>
+                    Understand symptoms, diagnosis,
+                    prevention and treatment.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>Tuberculosis</h3>
+                <p>
+                    Learn about TB transmission, symptoms,
+                    testing, treatment and prevention.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>HIV & STIs</h3>
+                <p>
+                    Access educational information about HIV,
+                    sexually transmitted infections and prevention.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>Laboratory Tests</h3>
+                <p>
+                    Understand common laboratory investigations
+                    and what their results may mean.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="library">
+
+        <div class="section-title">
+
+            <h2>Medical Education Library</h2>
+
+            <p>
+                Our library will provide clear and easy-to-understand
+                medical information.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Diseases</h3>
+                <p>
+                    Detailed educational information about common
+                    and important diseases.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Symptoms</h3>
+                <p>
+                    Understand common symptoms and when medical
+                    attention may be needed.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Prevention</h3>
+                <p>
+                    Practical health information for preventing
+                    illness and promoting wellbeing.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Healthy Living</h3>
+                <p>
+                    Information about nutrition, physical activity,
+                    lifestyle and general wellbeing.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="about" id="about">
+
+        <div class="section-title">
+
+            <h2>About HealthSphere Africa</h2>
+
+        </div>
+
+        <p>
+            HealthSphere Africa is being developed as a comprehensive
+            digital health platform focused on health education,
+            healthcare information and access to healthcare services.
+
+            Our goal is to help people better understand their bodies,
+            diseases, symptoms, prevention and available healthcare options.
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        <strong>HealthSphere Africa</strong>
+    </p>
+
+    <p>
+        Health Education • Healthcare • Telemedicine
+    </p>
+
+    <p>
+        &copy; 2026 HealthSphere Africa. All rights reserved.
+    </p>
+
+</footer>
+
 </body>
 </html>
