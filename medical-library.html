@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medical Library | HealthSphere Africa</title>
+
+    <meta name="description"
+          content="HealthSphere Africa Medical Library - Explore health information, diseases, symptoms, pregnancy, laboratory tests and healthy living.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f9f8;
+            color: #173b3f;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #087f5b;
+            color: white;
+            padding: 18px 7%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: white;
+            text-align: center;
+            padding: 65px 7%;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #607477;
+            font-size: 18px;
+        }
+
+        .library {
+            padding: 55px 7%;
+        }
+
+        .library-intro {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .library-intro h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .library-intro p {
+            color: #607477;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .category {
+            background: white;
+            padding: 28px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .category h3 {
+            color: #087f5b;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .category p {
+            color: #607477;
+            margin-bottom: 18px;
+        }
+
+        .category a {
+            display: inline-block;
+            background: #087f5b;
+            color: white;
+            text-decoration: none;
+            padding: 9px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .category a:hover {
+            opacity: 0.85;
+        }
+
+        .notice {
+            margin-top: 45px;
+            background: #e9f6f1;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .notice h3 {
+            margin-bottom: 8px;
+        }
+
+        .notice p {
+            color: #52666a;
+        }
+
+        footer {
+            background: #123b3e;
+            color: white;
+            text-align: center;
+            padding: 25px 7%;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 5px;
+                display: inline-block;
+            }
+
+            .categories {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+            HealthSphere Africa
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="medical-library.html">Medical Library</a>
+            <a href="index.html#topics">Health Topics</a>
+            <a href="index.html#about">About</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <h1>Medical Library</h1>
+
+        <p>
+            Explore clear and accessible health information about
+            diseases, symptoms, pregnancy, medicines, laboratory tests,
+            prevention and healthy living.
+        </p>
+
+    </section>
+
+
+    <section class="library">
+
+        <div class="library-intro">
+
+            <h2>Explore Our Health Categories</h2>
+
+            <p>
+                Select a category to discover health information.
+            </p>
+
+        </div>
+
+
+        <div class="categories">
+
+            <div class="category">
+                <h3>Diseases & Conditions</h3>
+                <p>
+                    Learn about common diseases, their symptoms,
+                    causes, diagnosis, treatment and prevention.
+                </p>
+                <a href="#">Explore</a>
+            </div>
+
+
+            <div class="category">
+                <h3>Symptoms</h3>
+                <p>
+                    Understand common symptoms and learn when
+                    professional medical attention may be necessary.
+                </p>
+                <a href="#">Explore</a>
+            </div>
+
+
+            <div class="category">
+                <h3>Pregnancy & Maternal Health</h3>
+                <p>
+                    Information about pregnancy, antenatal care,
+                    pregnancy conditions, delivery and maternal health.
+                </p>
+                <a href="#">Explore</a>
+            </div>
+
+
+            <div class="category">
+                <h3>Child & Newborn Health</h3>
+                <p>
+                    Learn about newborn care, childhood illnesses,
+                    immunization and child health.
+                </p>
+                <a href="#">Explore</a>
+            </div>
+
+
+            <div class="category">
+                <h3>Medicines</h3>
+                <p>
+                    Educational information about medicines,
+                    their uses, precautions and safe use.
+                </p>
+                <a href="#">Explore</a>
+            </div>
+
+
+            <div class="category">
+                <h3>Laboratory Tests</h3>
+                <p>
+                    Understand common laboratory investigations
+                    and what different test results may indicate.
+                </p>
+                <a href="#">Explore</a>
+            </div>
+
+
+            <div class="category">
+                <h3>Healthy Living</h3>
+                <p>
+                    Learn about nutrition, physical activity,
+                    sleep and healthy lifestyle choices.
+                </p>
+                <a href="#">Explore</a>
+            </div>
+
+
+            <div class="category">
+                <h3>Prevention</h3>
+                <p>
+                    Discover practical ways to reduce the risk
+                    of diseases and promote good health.
+                </p>
+                <a href="#">Explore</a>
+            </div>
+
+
+            <div class="category">
+                <h3>Emergency & First Aid</h3>
+                <p>
+                    Basic educational information about common
+                    emergencies and first-aid situations.
+                </p>
+                <a href="#">Explore</a>
+            </div>
+
+        </div>
+
+
+        <div class="notice">
+
+            <h3>Important Health Information</h3>
+
+            <p>
+                HealthSphere Africa provides educational information
+                and does not replace examination, diagnosis or treatment
+                by a qualified healthcare professional.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p><strong>HealthSphere Africa</strong></p>
+
+    <p>
+        Health Education • Healthcare • Telemedicine
+    </p>
+
+    <p>
+        &copy; 2026 HealthSphere Africa. All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>
