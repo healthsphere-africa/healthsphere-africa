@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diseases | HealthSphere Africa</title>
+  <title>Medical Education Library | HealthSphere Africa</title>
 
   <style>
     body {
@@ -20,7 +20,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     header h1 {
@@ -31,52 +30,49 @@
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
+      margin-left: 25px;
       font-weight: bold;
     }
 
     .hero {
-      background: white;
       text-align: center;
-      padding: 50px 20px 35px;
+      padding: 55px 20px 35px;
     }
 
     .hero h2 {
-      font-size: 38px;
+      font-size: 36px;
       margin-bottom: 15px;
     }
 
     .hero p {
       font-size: 18px;
-      line-height: 1.6;
+      color: #456;
     }
 
-    .search {
-      margin: 25px auto;
+    .search-box {
+      text-align: center;
+      margin: 20px auto 40px;
+    }
+
+    .search-box input {
+      width: 70%;
       max-width: 600px;
-    }
-
-    .search input {
-      width: 100%;
-      box-sizing: border-box;
       padding: 15px;
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 16px;
     }
 
-    .content {
-      padding: 40px 7%;
+    .library {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      padding-bottom: 60px;
     }
 
-    .content h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .disease-grid {
+    .library-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 25px;
     }
 
@@ -84,7 +80,7 @@
       background: white;
       padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     .card h3 {
@@ -94,192 +90,182 @@
 
     .card p {
       line-height: 1.6;
+      color: #456;
     }
 
     .card a {
-      color: #07875f;
-      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+      background: #07875f;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
       text-decoration: none;
+      font-weight: bold;
     }
 
     footer {
-      background: #163b4d;
-      color: white;
       text-align: center;
+      background: #e5f3ef;
       padding: 25px;
-      margin-top: 40px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .search-box input {
+        width: 85%;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>HealthSphere Africa</h1>
+  <header>
+    <h1>HealthSphere Africa</h1>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="medical-library.html">Medical Library</a>
-  </nav>
-</header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="medical-library.html">Medical Library</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <h2>Diseases</h2>
+  <section class="hero">
+    <h2>Medical Education Library</h2>
 
-  <p>
-    Learn about common diseases, their symptoms, causes,
-    prevention, diagnosis and treatment.
-  </p>
+    <p>
+      Reliable, clear and easy-to-understand health information
+      for everyone.
+    </p>
+  </section>
 
-  <div class="search">
+  <div class="search-box">
     <input
       type="text"
       id="searchInput"
-      placeholder="Search for a disease..."
-      onkeyup="searchDiseases()"
+      placeholder="Search the medical library..."
+      onkeyup="searchLibrary()"
     >
   </div>
-</section>
 
-<section class="content">
+  <section class="library">
 
-  <h2>Explore Diseases</h2>
+    <div class="library-grid">
 
-  <div class="disease-grid">
+      <div class="card">
+        <h3>Diseases & Conditions</h3>
+        <p>
+          Learn about common diseases, their symptoms,
+          causes, prevention and treatment.
+        </p>
+        <a href="disease.html">Explore Diseases</a>
+      </div>
 
-    <div class="card">
-      <h3>Malaria</h3>
-      <p>
-        Learn about malaria, its symptoms, transmission,
-        diagnosis, treatment and prevention.
-      </p>
-      <a href="#">Read more →</a>
+      <div class="card">
+        <h3>Symptoms</h3>
+        <p>
+          Understand common symptoms and learn when
+          medical attention may be needed.
+        </p>
+        <a href="#">Explore Symptoms</a>
+      </div>
+
+      <div class="card">
+        <h3>Prevention</h3>
+        <p>
+          Practical information about preventing illness
+          and protecting your health.
+        </p>
+        <a href="#">Explore Prevention</a>
+      </div>
+
+      <div class="card">
+        <h3>Healthy Living</h3>
+        <p>
+          Information about nutrition, physical activity,
+          lifestyle and general wellbeing.
+        </p>
+        <a href="#">Explore Healthy Living</a>
+      </div>
+
+      <div class="card">
+        <h3>Pregnancy & Maternal Health</h3>
+        <p>
+          Educational information about pregnancy,
+          maternal health and important pregnancy conditions.
+        </p>
+        <a href="#">Explore Pregnancy Health</a>
+      </div>
+
+      <div class="card">
+        <h3>Laboratory Tests</h3>
+        <p>
+          Understand common laboratory tests and what
+          different results may mean.
+        </p>
+        <a href="#">Explore Laboratory Tests</a>
+      </div>
+
+      <div class="card">
+        <h3>Medications</h3>
+        <p>
+          Learn about commonly used medicines, their
+          purposes, precautions and safe use.
+        </p>
+        <a href="#">Explore Medications</a>
+      </div>
+
+      <div class="card">
+        <h3>Health & Fitness</h3>
+        <p>
+          Learn about physical activity, healthy habits
+          and maintaining overall wellbeing.
+        </p>
+        <a href="#">Explore Health & Fitness</a>
+      </div>
+
     </div>
 
-    <div class="card">
-      <h3>Typhoid Fever</h3>
-      <p>
-        Understand typhoid fever, its causes, symptoms,
-        diagnosis, treatment and prevention.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
+  </section>
 
-    <div class="card">
-      <h3>Tuberculosis</h3>
-      <p>
-        Learn about tuberculosis, how it spreads, its symptoms,
-        diagnosis, treatment and prevention.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
+  <footer>
+    © 2026 HealthSphere Africa. All rights reserved.
+  </footer>
 
-    <div class="card">
-      <h3>HIV</h3>
-      <p>
-        Understand HIV, transmission, testing, treatment,
-        prevention and living well with the condition.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
+  <script>
+    function searchLibrary() {
+      const input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
 
-    <div class="card">
-      <h3>Lassa Fever</h3>
-      <p>
-        Learn about Lassa fever, its transmission, symptoms,
-        prevention and the importance of early medical care.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
+      const cards = document.querySelectorAll(".card");
 
-    <div class="card">
-      <h3>Hypertension</h3>
-      <p>
-        Understand high blood pressure, its risk factors,
-        complications, prevention and management.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
 
-    <div class="card">
-      <h3>Diabetes</h3>
-      <p>
-        Learn about diabetes, its symptoms, risk factors,
-        complications, treatment and prevention.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
-
-    <div class="card">
-      <h3>Asthma</h3>
-      <p>
-        Understand asthma, common triggers, symptoms,
-        treatment and ways to reduce attacks.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
-
-    <div class="card">
-      <h3>Sickle Cell Disease</h3>
-      <p>
-        Learn about sickle cell disease, symptoms,
-        complications, prevention and ongoing care.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
-
-    <div class="card">
-      <h3>Measles</h3>
-      <p>
-        Understand measles, how it spreads, symptoms,
-        complications and vaccination.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
-
-    <div class="card">
-      <h3>Tetanus</h3>
-      <p>
-        Learn about tetanus, how it occurs, symptoms,
-        prevention and the importance of vaccination.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
-
-    <div class="card">
-      <h3>Heart Disease</h3>
-      <p>
-        Explore common heart diseases, their risk factors,
-        warning signs, prevention and treatment.
-      </p>
-      <a href="#">Read more →</a>
-    </div>
-
-  </div>
-
-</section>
-
-<footer>
-  © 2026 HealthSphere Africa. All rights reserved.
-</footer>
-
-<script>
-function searchDiseases() {
-  const input = document.getElementById("searchInput");
-  const filter = input.value.toLowerCase();
-  const cards = document.querySelectorAll(".card");
-
-  cards.forEach(card => {
-    const text = card.textContent.toLowerCase();
-
-    if (text.includes(filter)) {
-      card.style.display = "";
-    } else {
-      card.style.display = "none";
+        if (text.includes(input)) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
     }
-  });
-}
-</script>
+  </script>
 
 </body>
 </html>
