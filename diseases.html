@@ -1,194 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseases | HealthSphere Africa</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseases | HealthSphere Africa</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f9f8;
-            color: #17465b;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f9f8;
+      color: #173f4f;
+    }
 
-        header {
-            background: #07875f;
-            color: white;
-            padding: 20px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    header {
+      background: #07875f;
+      color: white;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 26px;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 25px;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 15px;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
+    .hero {
+      text-align: center;
+      padding: 55px 20px 35px;
+    }
 
-        h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
 
-        .intro {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
+    .hero p {
+      font-size: 18px;
+      color: #456675;
+    }
 
-        .disease-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 25px;
-        }
+    .diseases {
+      max-width: 1100px;
+      margin: 20px auto 70px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
 
-        .disease-card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
 
-        .disease-card h3 {
-            color: #07875f;
-            margin-top: 0;
-        }
+    .card h3 {
+      color: #07875f;
+      margin-top: 0;
+      font-size: 21px;
+    }
 
-        .disease-card p {
-            line-height: 1.6;
-        }
+    .card p {
+      color: #456675;
+      line-height: 1.6;
+    }
 
-        .disease-card a {
-            color: #07875f;
-            font-weight: bold;
-            text-decoration: none;
-        }
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #07875f;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-        footer {
-            margin-top: 60px;
-            padding: 25px;
-            text-align: center;
-            background: #e5f4f0;
-        }
-    </style>
+    footer {
+      background: #e5f3ef;
+      text-align: center;
+      padding: 25px;
+      color: #456675;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <header>
     <h1>HealthSphere Africa</h1>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="medical-library.html">Medical Library</a>
-        <a href="about.html">About</a>
+      <a href="index.html">Home</a>
+      <a href="medical-library.html">Medical Library</a>
+      <a href="diseases.html">Diseases</a>
     </nav>
-</header>
+  </header>
 
-<div class="container">
-
+  <section class="hero">
     <h2>Diseases</h2>
-
-    <p class="intro">
-        Learn about common diseases, their symptoms, causes,
-        prevention and when to seek medical care.
+    <p>
+      Learn about common diseases, their symptoms, causes,
+      prevention and when to seek medical care.
     </p>
+  </section>
 
-    <div class="disease-grid">
+  <section class="diseases">
 
-        <div class="disease-card">
-            <h3>Malaria</h3>
-            <p>Learn about malaria, its symptoms, prevention and treatment.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>Typhoid Fever</h3>
-            <p>Understand the causes, symptoms, prevention and management of typhoid fever.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>Hypertension</h3>
-            <p>Learn how high blood pressure affects the body and how it can be prevented and controlled.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>Heart Diseases</h3>
-            <p>Understand common heart conditions, risk factors, warning signs and prevention.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>Tuberculosis</h3>
-            <p>Learn about tuberculosis, how it spreads, its symptoms and prevention.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>HIV and STIs</h3>
-            <p>Learn about HIV and sexually transmitted infections, prevention and available care.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>Lassa Fever</h3>
-            <p>Understand Lassa fever, how it spreads, warning signs and prevention.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>Tetanus</h3>
-            <p>Learn about tetanus, its causes, prevention and the importance of vaccination.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>Measles</h3>
-            <p>Learn about measles, its symptoms, transmission and prevention through vaccination.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>Diabetes</h3>
-            <p>Understand diabetes, its symptoms, complications, prevention and management.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>Asthma</h3>
-            <p>Learn about asthma, common triggers, symptoms and ways to manage the condition.</p>
-            <a href="#">Read More</a>
-        </div>
-
-        <div class="disease-card">
-            <h3>Kidney Diseases</h3>
-            <p>Understand common kidney problems, warning signs and ways to protect kidney health.</p>
-            <a href="#">Read More</a>
-        </div>
-
+    <div class="card">
+      <h3>Malaria</h3>
+      <p>Learn about malaria, its symptoms, prevention, diagnosis and treatment.</p>
+      <a href="#">Learn More →</a>
     </div>
-</div>
 
-<footer>
+    <div class="card">
+      <h3>Typhoid Fever</h3>
+      <p>Understand the causes, symptoms, diagnosis, prevention and treatment of typhoid fever.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Hypertension</h3>
+      <p>Learn how high blood pressure affects the body and how it can be prevented and managed.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Heart Diseases</h3>
+      <p>Explore important information about common heart conditions and cardiovascular health.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Tuberculosis</h3>
+      <p>Learn about tuberculosis, how it spreads, its symptoms, diagnosis and prevention.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>HIV & STIs</h3>
+      <p>Understand HIV and sexually transmitted infections, prevention, testing and treatment.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Pregnancy & Maternal Health</h3>
+      <p>Important information about pregnancy conditions and maternal health.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Diabetes</h3>
+      <p>Learn about diabetes, its symptoms, complications, prevention and management.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Lassa Fever</h3>
+      <p>Understand Lassa fever, transmission, symptoms, prevention and the importance of early care.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Tetanus</h3>
+      <p>Learn about tetanus, its causes, symptoms and how vaccination helps prevent it.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Measles</h3>
+      <p>Learn about measles, its symptoms, transmission, complications and prevention.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Sickle Cell Disease</h3>
+      <p>Understand sickle cell disease and important information about living with the condition.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Kidney Diseases</h3>
+      <p>Learn about common kidney diseases, warning signs and ways to protect kidney health.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+    <div class="card">
+      <h3>Lung Diseases</h3>
+      <p>Explore common lung conditions, symptoms, prevention and when medical attention is needed.</p>
+      <a href="#">Learn More →</a>
+    </div>
+
+  </section>
+
+  <footer>
     © 2026 HealthSphere Africa. All rights reserved.
-</footer>
+  </footer>
 
 </body>
 </html>
