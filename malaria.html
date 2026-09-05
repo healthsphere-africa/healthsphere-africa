@@ -3,203 +3,1467 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Malaria | HealthSphere Africa</title>
 
+  <meta name="description"
+        content="Learn about malaria, how it affects the body, symptoms, diagnosis, treatment, prevention, warning signs, myths and important facts.">
+
   <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f9f8;
-      color: #163b4d;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f9f7;
+      color: #183b4b;
       line-height: 1.7;
     }
+
+    /* HEADER */
 
     header {
       background: #07875f;
       color: white;
-      padding: 20px 7%;
+      padding: 18px 7%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
     }
 
     header h1 {
       margin: 0;
+      font-size: 25px;
     }
 
     nav {
-      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-right: 20px;
+      font-weight: bold;
+      font-size: 14px;
     }
 
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: linear-gradient(135deg, #07875f, #0b9d72);
+      color: white;
+      padding: 65px 20px;
+    }
+
+    .hero-content {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      font-size: 19px;
+      margin: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      padding: 7px 14px;
+      border-radius: 30px;
+      margin-bottom: 18px;
+      font-weight: bold;
+    }
+
+    /* MAIN */
+
     .container {
-      max-width: 900px;
-      margin: 40px auto;
+      max-width: 1050px;
+      margin: 40px auto 80px;
       padding: 0 20px;
     }
 
-    .hero {
+    /* QUICK NAV */
+
+    .quick-nav {
       background: white;
-      padding: 30px;
-      border-radius: 12px;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      padding: 20px;
+      border-radius: 14px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
     }
 
-    h2 {
+    .quick-nav strong {
+      display: block;
+      margin-bottom: 10px;
       color: #07875f;
     }
 
-    .section {
-      background: white;
-      padding: 25px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    .quick-nav a {
+      display: inline-block;
+      margin: 5px 8px 5px 0;
+      padding: 7px 12px;
+      background: #e8f5f1;
+      color: #07875f;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
     }
 
-    .warning {
-      background: #fff8e6;
-      padding: 18px;
-      border-left: 5px solid #e0a800;
-      border-radius: 6px;
+    /* CARDS */
+
+    .section {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
     }
+
+    .section h2 {
+      color: #07875f;
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .section h3 {
+      color: #24566a;
+      margin-top: 25px;
+    }
+
+    /* ONE MINUTE */
+
+    .summary {
+      border-left: 6px solid #07875f;
+      background: #eaf7f2;
+    }
+
+    .summary ul {
+      padding-left: 22px;
+    }
+
+    /* FACT GRID */
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .fact {
+      background: #f3f8f7;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .fact strong {
+      display: block;
+      color: #07875f;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    /* MECHANISM */
+
+    .mechanism {
+      display: grid;
+      gap: 15px;
+    }
+
+    .step {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      background: #f5faf8;
+      padding: 18px;
+      border-radius: 10px;
+    }
+
+    .step-number {
+      min-width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #07875f;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    /* ALERT */
+
+    .alert {
+      background: #fff7e6;
+      border-left: 6px solid #d89b00;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .danger {
+      background: #fff0ef;
+      border-left: 6px solid #c63b32;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    /* MYTHS */
+
+    .myth {
+      background: #fafafa;
+      border-radius: 10px;
+      margin: 15px 0;
+      padding: 18px;
+    }
+
+    .myth strong {
+      color: #c63b32;
+    }
+
+    .truth {
+      margin-top: 7px;
+    }
+
+    .truth strong {
+      color: #07875f;
+    }
+
+    /* DID YOU KNOW */
+
+    .did-you-know {
+      background: #eef6ff;
+      border-left: 6px solid #4777a8;
+      padding: 22px;
+      border-radius: 8px;
+    }
+
+    /* QUIZ */
+
+    .quiz-question {
+      background: #f5f9f8;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+    }
+
+    .quiz-question button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin: 8px 0;
+      padding: 12px 15px;
+      border: 1px solid #ccdcd7;
+      border-radius: 7px;
+      background: white;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .quiz-question button:hover {
+      background: #eaf5f1;
+    }
+
+    .quiz-result {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* READ ALOUD */
+
+    .read-aloud {
+      background: #eaf7f2;
+      padding: 22px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .read-aloud button {
+      background: #07875f;
+      color: white;
+      border: none;
+      padding: 13px 22px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    .read-aloud button:hover {
+      opacity: 0.9;
+    }
+
+    /* RELATED */
+
+    .related {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 15px;
+    }
+
+    .related a {
+      background: #f2f8f6;
+      padding: 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #07875f;
+      font-weight: bold;
+    }
+
+    /* BACK BUTTON */
 
     .back-button {
       display: inline-block;
       background: #07875f;
       color: white;
-      padding: 12px 20px;
-      border-radius: 6px;
+      padding: 13px 22px;
+      border-radius: 7px;
       text-decoration: none;
-      margin-top: 10px;
+      font-weight: bold;
     }
 
+    /* FOOTER */
+
     footer {
+      background: #e5f3ef;
       text-align: center;
-      padding: 25px;
-      background: #eaf5f2;
-      margin-top: 40px;
+      padding: 30px 20px;
+      color: #456675;
     }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      .header-inner {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <h1>HealthSphere Africa</h1>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="medical-library.html">Medical Library</a>
-    <a href="diseases.html">Diseases</a>
-  </nav>
+  <div class="header-inner">
+
+    <h1>HealthSphere Africa</h1>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="medical-library.html">Medical Library</a>
+      <a href="diseases.html">Diseases</a>
+    </nav>
+
+  </div>
+
 </header>
 
-<div class="container">
 
-  <div class="hero">
+<section class="hero">
+
+  <div class="hero-content">
+
+    <span class="tag">MEDICAL EDUCATION</span>
+
     <h2>Malaria</h2>
+
     <p>
-      Malaria is a serious disease caused by parasites that are transmitted
-      to people through the bites of infected female Anopheles mosquitoes.
-      It is preventable and treatable, but it can become severe if treatment
-      is delayed.
+      Understanding malaria — how it spreads, what it does inside
+      the body, how it is diagnosed, treated and prevented.
     </p>
+
   </div>
 
-  <div class="section">
-    <h2>What is Malaria?</h2>
-    <p>
-      Malaria is an infectious disease caused by Plasmodium parasites.
-      The disease is common in many tropical and subtropical areas,
-      including parts of Africa.
-    </p>
-    <p>
-      Malaria is not spread by ordinary contact such as shaking hands,
-      sharing food, or sitting beside someone who has the disease.
-    </p>
+</section>
+
+
+<main class="container">
+
+
+  <!-- QUICK NAVIGATION -->
+
+  <div class="quick-nav">
+
+    <strong>Explore this article</strong>
+
+    <a href="#summary">1-Minute Summary</a>
+    <a href="#mechanism">How It Works</a>
+    <a href="#symptoms">Symptoms</a>
+    <a href="#diagnosis">Diagnosis</a>
+    <a href="#treatment">Treatment</a>
+    <a href="#prevention">Prevention</a>
+    <a href="#danger">Danger Signs</a>
+    <a href="#myths">Myths</a>
+    <a href="#quiz">Knowledge Check</a>
+
   </div>
 
-  <div class="section">
-    <h2>Common Symptoms</h2>
+
+  <!-- ONE MINUTE SUMMARY -->
+
+  <section class="section summary" id="summary">
+
+    <h2>⏱️ Malaria in One Minute</h2>
+
     <ul>
+
+      <li>
+        Malaria is an infectious disease caused by
+        <strong>Plasmodium parasites</strong>.
+      </li>
+
+      <li>
+        It is mainly transmitted through the bite of an infected
+        female <strong>Anopheles mosquito</strong>.
+      </li>
+
+      <li>
+        Common symptoms include fever, chills, headache,
+        weakness, muscle aches, nausea and sometimes vomiting.
+      </li>
+
+      <li>
+        Malaria can become severe, particularly in young children,
+        pregnant people and people with certain health vulnerabilities.
+      </li>
+
+      <li>
+        Testing is important because many illnesses can cause fever.
+      </li>
+
+      <li>
+        Malaria is treatable, and early appropriate treatment
+        reduces the risk of severe disease.
+      </li>
+
+      <li>
+        Mosquito-control measures and other prevention strategies
+        help reduce transmission.
+      </li>
+
+    </ul>
+
+  </section>
+
+
+  <!-- AT A GLANCE -->
+
+  <section class="section">
+
+    <h2>🩺 Malaria at a Glance</h2>
+
+    <div class="fact-grid">
+
+      <div class="fact">
+        <strong>Cause</strong>
+        Plasmodium parasites
+      </div>
+
+      <div class="fact">
+        <strong>Main Vector</strong>
+        Infected female Anopheles mosquitoes
+      </div>
+
+      <div class="fact">
+        <strong>Main Target</strong>
+        The parasite has important stages involving the liver and red blood cells.
+      </div>
+
+      <div class="fact">
+        <strong>Diagnosis</strong>
+        Blood testing
+      </div>
+
+      <div class="fact">
+        <strong>Treatment</strong>
+        Appropriate antimalarial therapy based on clinical assessment and local guidance
+      </div>
+
+      <div class="fact">
+        <strong>Prevention</strong>
+        Mosquito control, bed nets and other recommended measures
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHAT IS MALARIA -->
+
+  <section class="section">
+
+    <h2>🦟 What Is Malaria?</h2>
+
+    <p>
+      Malaria is an infectious disease caused by parasites of the
+      <em>Plasmodium</em> group. Several Plasmodium species can infect
+      humans.
+    </p>
+
+    <p>
+      Transmission usually occurs when an infected female Anopheles
+      mosquito bites a person and introduces malaria parasites into
+      the bloodstream.
+    </p>
+
+    <p>
+      Malaria is particularly important in tropical and subtropical
+      regions, including many parts of Africa.
+    </p>
+
+  </section>
+
+
+  <!-- MECHANISM -->
+
+  <section class="section" id="mechanism">
+
+    <h2>🧬 How Malaria Works in the Body</h2>
+
+    <p>
+      One of the most useful ways to understand malaria is to follow
+      what happens after the parasite enters the body.
+    </p>
+
+    <div class="mechanism">
+
+      <div class="step">
+
+        <div class="step-number">1</div>
+
+        <div>
+          <strong>The mosquito bite</strong>
+
+          <p>
+            An infected mosquito introduces malaria parasites into
+            the person's bloodstream.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">2</div>
+
+        <div>
+
+          <strong>The liver stage</strong>
+
+          <p>
+            The parasites travel to the liver, where they develop
+            and multiply. This stage can occur before symptoms begin.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">3</div>
+
+        <div>
+
+          <strong>Red blood cells become involved</strong>
+
+          <p>
+            Parasites enter red blood cells and multiply. Infected
+            cells eventually rupture, releasing more parasites.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">4</div>
+
+        <div>
+
+          <strong>The immune system responds</strong>
+
+          <p>
+            The body's immune response contributes to symptoms such
+            as fever, chills and general weakness.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">5</div>
+
+        <div>
+
+          <strong>Repeated infection of red blood cells</strong>
+
+          <p>
+            Continued parasite multiplication can damage red blood
+            cells and contribute to anaemia and other complications.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TRANSMISSION -->
+
+  <section class="section">
+
+    <h2>🔄 How Does Malaria Spread?</h2>
+
+    <p>
+      The usual transmission cycle involves mosquitoes and humans.
+    </p>
+
+    <div class="fact-grid">
+
+      <div class="fact">
+
+        <strong>Step 1</strong>
+
+        An infected mosquito bites a person.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>Step 2</strong>
+
+        The parasite develops inside the person's body.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>Step 3</strong>
+
+        Another mosquito bites an infected person and can acquire parasites.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>Step 4</strong>
+
+        The parasite develops inside the mosquito.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>Step 5</strong>
+
+        The infected mosquito can transmit malaria during a later bite.
+
+      </div>
+
+    </div>
+
+    <p>
+      Malaria is not normally spread through ordinary social contact
+      such as shaking hands, sitting beside someone or sharing a meal.
+    </p>
+
+  </section>
+
+
+  <!-- SYMPTOMS -->
+
+  <section class="section" id="symptoms">
+
+    <h2>🤒 Signs and Symptoms</h2>
+
+    <p>
+      Symptoms can vary from person to person. Common symptoms include:
+    </p>
+
+    <ul>
+
       <li>Fever</li>
       <li>Chills or feeling cold</li>
       <li>Headache</li>
-      <li>Body weakness or tiredness</li>
-      <li>Muscle and joint aches</li>
-      <li>Nausea or vomiting</li>
+      <li>Weakness or unusual tiredness</li>
+      <li>Muscle or joint aches</li>
+      <li>Nausea</li>
+      <li>Vomiting</li>
       <li>Sometimes diarrhoea</li>
+
     </ul>
-  </div>
 
-  <div class="section">
-    <h2>How Malaria is Diagnosed</h2>
+    <h3>Why does malaria cause fever?</h3>
+
     <p>
-      Malaria is usually diagnosed by testing a person's blood for malaria
-      parasites. Depending on the healthcare setting, this may include a
-      malaria rapid diagnostic test or examination of a blood film.
+      Fever is partly related to the body's immune response to
+      malaria parasites and changes associated with infected red
+      blood cells.
     </p>
-  </div>
 
-  <div class="section">
-    <h2>Prevention</h2>
+    <h3>Why can malaria cause weakness?</h3>
+
+    <p>
+      Infection can produce significant inflammation and, in some
+      cases, destruction of red blood cells. Anaemia can also
+      contribute to weakness.
+    </p>
+
+  </section>
+
+
+  <!-- RISK -->
+
+  <section class="section">
+
+    <h2>⚠️ Who Is More Vulnerable to Severe Malaria?</h2>
+
+    <p>
+      The risk of severe illness is influenced by age, pregnancy,
+      immunity, access to prompt treatment and other individual
+      factors.
+    </p>
+
     <ul>
-      <li>Sleep under insecticide-treated mosquito nets.</li>
-      <li>Reduce mosquito breeding sites around homes where possible.</li>
-      <li>Use recommended mosquito-control measures.</li>
-      <li>Seek advice about malaria prevention when travelling to high-risk areas.</li>
-      <li>Pregnant women and young children should receive appropriate preventive care according to local health guidance.</li>
+
+      <li>Young children, particularly those in malaria-endemic areas</li>
+
+      <li>Pregnant people</li>
+
+      <li>People with limited immunity to malaria</li>
+
+      <li>People who develop delayed or inadequate treatment</li>
+
     </ul>
-  </div>
 
-  <div class="section">
-    <h2>Treatment</h2>
-    <p>
-      Malaria treatment depends on the malaria parasite involved, the
-      severity of the illness, the person's age and other factors.
-      Antimalarial medicines should be selected according to current
-      clinical guidance and the local pattern of malaria drug resistance.
-    </p>
+    <div class="alert">
 
-    <div class="warning">
       <strong>Important:</strong>
-      Do not delay medical care when malaria is suspected, especially in
-      young children, pregnant women, older people, or anyone who is
-      becoming seriously ill.
+
+      A person who initially appears to have mild illness can
+      become seriously ill. Worsening symptoms should not be ignored.
+
     </div>
-  </div>
 
-  <div class="section">
-    <h2>When to Seek Urgent Medical Care</h2>
-    <p>
-      Seek urgent medical attention if a person with suspected or confirmed
-      malaria develops severe weakness, confusion, difficulty breathing,
-      repeated vomiting, seizures, inability to drink, or other signs of
-      serious illness.
-    </p>
-  </div>
+  </section>
 
-  <div class="section">
-    <h2>Key Message</h2>
+
+  <!-- DIAGNOSIS -->
+
+  <section class="section" id="diagnosis">
+
+    <h2>🧪 How Is Malaria Diagnosed?</h2>
+
     <p>
-      Malaria can be prevented and treated. Early testing and appropriate
-      treatment can help reduce the risk of serious complications.
+      Because fever can have many causes, malaria should ideally be
+      confirmed with an appropriate diagnostic test where testing is
+      available.
     </p>
-  </div>
+
+    <h3>Common approaches include:</h3>
+
+    <ul>
+
+      <li>Malaria rapid diagnostic tests</li>
+
+      <li>Microscopic examination of blood films</li>
+
+      <li>Other laboratory methods in appropriate settings</li>
+
+    </ul>
+
+    <p>
+      The healthcare professional may also assess symptoms, medical
+      history and other possible causes of illness.
+    </p>
+
+  </section>
+
+
+  <!-- TREATMENT -->
+
+  <section class="section" id="treatment">
+
+    <h2>💊 Treatment and Management</h2>
+
+    <p>
+      Malaria treatment depends on factors such as the parasite
+      species, severity of illness, age, pregnancy status, previous
+      treatment and the local pattern of antimalarial drug resistance.
+    </p>
+
+    <p>
+      Appropriate antimalarial treatment should therefore be selected
+      according to current clinical guidance and assessment by a
+      qualified healthcare professional.
+    </p>
+
+    <div class="alert">
+
+      <strong>Do not guess the treatment.</strong>
+
+      Not every fever is malaria, and different forms of malaria
+      may require different treatment approaches. Testing and
+      professional assessment are important.
+
+    </div>
+
+  </section>
+
+
+  <!-- PREVENTION -->
+
+  <section class="section" id="prevention">
+
+    <h2>🛡️ How Can Malaria Be Prevented?</h2>
+
+    <div class="fact-grid">
+
+      <div class="fact">
+
+        <strong>🛏️ Insecticide-treated nets</strong>
+
+        Sleeping under an appropriate insecticide-treated mosquito
+        net can reduce exposure to malaria-transmitting mosquitoes.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>🏠 Reduce mosquito exposure</strong>
+
+        Use appropriate mosquito-control measures around homes
+        and sleeping areas.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>🌿 Environmental control</strong>
+
+        Where practical, reducing mosquito breeding opportunities
+        can contribute to vector control.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>🏥 Preventive care</strong>
+
+        Follow recommended malaria prevention programmes, especially
+        for groups such as pregnant people and young children.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DANGER SIGNS -->
+
+  <section class="section" id="danger">
+
+    <h2>🚨 Danger Signs: When Urgent Care Is Needed</h2>
+
+    <p>
+      Severe malaria can be life-threatening. Seek urgent medical
+      attention if someone with suspected or confirmed malaria
+      develops serious or rapidly worsening symptoms.
+    </p>
+
+    <div class="danger">
+
+      <ul>
+
+        <li>Confusion or unusual difficulty staying awake</li>
+
+        <li>Seizures</li>
+
+        <li>Difficulty breathing</li>
+
+        <li>Repeated vomiting or inability to drink</li>
+
+        <li>Severe weakness or deterioration</li>
+
+        <li>Other signs of serious illness</li>
+
+      </ul>
+
+      <strong>
+        Do not wait for symptoms to become severe before seeking care.
+      </strong>
+
+    </div>
+
+  </section>
+
+
+  <!-- CHILDREN -->
+
+  <section class="section">
+
+    <h2>👶 Malaria in Children</h2>
+
+    <p>
+      Children can become seriously ill from malaria, particularly
+      in areas where malaria transmission is common.
+    </p>
+
+    <p>
+      A child with fever, unusual weakness, poor feeding, repeated
+      vomiting, altered behaviour, difficulty breathing or other
+      concerning symptoms should be assessed promptly by a healthcare
+      professional.
+    </p>
+
+  </section>
+
+
+  <!-- PREGNANCY -->
+
+  <section class="section">
+
+    <h2>🤰 Malaria in Pregnancy</h2>
+
+    <p>
+      Malaria during pregnancy can affect both the pregnant person
+      and the developing baby. Prevention, appropriate testing and
+      treatment are therefore particularly important.
+    </p>
+
+    <p>
+      Pregnant people should follow the malaria prevention and
+      treatment recommendations provided by their healthcare team
+      and local health programme.
+    </p>
+
+  </section>
+
+
+  <!-- ANAEMIA -->
+
+  <section class="section">
+
+    <h2>🩸 Malaria and Anaemia</h2>
+
+    <p>
+      Malaria can contribute to anaemia because malaria parasites
+      infect red blood cells and infected cells may be destroyed.
+    </p>
+
+    <p>
+      Repeated or severe infections can therefore contribute to
+      significant reductions in red blood cells, which may worsen
+      tiredness, weakness and other symptoms.
+    </p>
+
+  </section>
+
+
+  <!-- DID YOU KNOW -->
+
+  <section class="section">
+
+    <div class="did-you-know">
+
+      <h2>💡 Did You Know?</h2>
+
+      <ul>
+
+        <li>
+          Malaria parasites have different stages during their
+          life cycle.
+        </li>
+
+        <li>
+          The malaria parasite can involve both liver cells and
+          red blood cells during infection.
+        </li>
+
+        <li>
+          Malaria prevention involves controlling exposure to
+          malaria-transmitting mosquitoes as well as other
+          public-health measures.
+        </li>
+
+        <li>
+          Fever does not automatically mean a person has malaria;
+          other infections and conditions can also cause fever.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+  <!-- MYTHS -->
+
+  <section class="section" id="myths">
+
+    <h2>❌ Myths & Misconceptions</h2>
+
+
+    <div class="myth">
+
+      <strong>MYTH:</strong>
+
+      Every fever is malaria.
+
+      <div class="truth">
+
+        <strong>FACT:</strong>
+
+        Many illnesses can cause fever. Appropriate testing helps
+        determine whether malaria is present.
+
+      </div>
+
+    </div>
+
+
+    <div class="myth">
+
+      <strong>MYTH:</strong>
+
+      Malaria spreads simply by being around someone who has it.
+
+      <div class="truth">
+
+        <strong>FACT:</strong>
+
+        Malaria is mainly transmitted through infected mosquitoes.
+        Ordinary social contact does not normally transmit malaria.
+
+      </div>
+
+    </div>
+
+
+    <div class="myth">
+
+      <strong>MYTH:</strong>
+
+      Once malaria symptoms improve, treatment can always be stopped.
+
+      <div class="truth">
+
+        <strong>FACT:</strong>
+
+        Treatment should be taken exactly as prescribed by the
+        healthcare professional.
+
+      </div>
+
+    </div>
+
+
+    <div class="myth">
+
+      <strong>MYTH:</strong>
+
+      Malaria is always a mild illness.
+
+      <div class="truth">
+
+        <strong>FACT:</strong>
+
+        Malaria can become severe and requires prompt attention
+        when symptoms are concerning or worsening.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- HUMAN BODY -->
+
+  <section class="section">
+
+    <h2>🫀 Malaria & the Human Body</h2>
+
+    <div class="fact-grid">
+
+      <div class="fact">
+
+        <strong>🧫 Liver</strong>
+
+        Important early stages of the parasite's development occur
+        in liver cells.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>🩸 Blood</strong>
+
+        The parasite infects red blood cells and can contribute
+        to their destruction.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>🛡️ Immune System</strong>
+
+        The immune response contributes to inflammation and
+        many symptoms of malaria.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>🧠 Brain</strong>
+
+        Severe malaria can involve the nervous system and may
+        cause serious neurological complications.
+
+      </div>
+
+      <div class="fact">
+
+        <strong>❤️ Whole Body</strong>
+
+        Severe malaria can affect multiple organs and requires
+        urgent medical management.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUICK FACTS -->
+
+  <section class="section">
+
+    <h2>📌 Quick Facts</h2>
+
+    <ul>
+
+      <li>Malaria is caused by Plasmodium parasites.</li>
+
+      <li>Infected Anopheles mosquitoes are the main vectors.</li>
+
+      <li>Blood testing can help confirm malaria.</li>
+
+      <li>Malaria can be prevented.</li>
+
+      <li>Malaria is treatable.</li>
+
+      <li>Severe malaria requires urgent medical care.</li>
+
+      <li>Not every fever is caused by malaria.</li>
+
+    </ul>
+
+  </section>
+
+
+  <!-- READ ALOUD -->
+
+  <section class="section">
+
+    <div class="read-aloud">
+
+      <h2>🔊 Read This Article Aloud</h2>
+
+      <p>
+        Use the buttons below to have your browser read the
+        article aloud.
+      </p>
+
+      <button onclick="readArticle()">
+        ▶ Start Reading
+      </button>
+
+      <button onclick="stopReading()">
+        ■ Stop
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUIZ -->
+
+  <section class="section" id="quiz">
+
+    <h2>🧠 Test Your Knowledge</h2>
+
+    <p>
+      Let's see how much you remember.
+    </p>
+
+
+    <div class="quiz-question">
+
+      <strong>1. What organism causes malaria?</strong>
+
+      <button onclick="answer(this, false)">
+        A. Bacteria
+      </button>
+
+      <button onclick="answer(this, true)">
+        B. Plasmodium parasite
+      </button>
+
+      <button onclick="answer(this, false)">
+        C. Fungus
+      </button>
+
+      <p class="quiz-result"></p>
+
+    </div>
+
+
+    <div class="quiz-question">
+
+      <strong>2. What is the main vector of malaria?</strong>
+
+      <button onclick="answer(this, true)">
+        A. Infected female Anopheles mosquito
+      </button>
+
+      <button onclick="answer(this, false)">
+        B. Housefly
+      </button>
+
+      <button onclick="answer(this, false)">
+        C. Tick
+      </button>
+
+      <p class="quiz-result"></p>
+
+    </div>
+
+
+    <div class="quiz-question">
+
+      <strong>3. Is every fever malaria?</strong>
+
+      <button onclick="answer(this, false)">
+        A. Yes
+      </button>
+
+      <button onclick="answer(this, true)">
+        B. No
+      </button>
+
+      <p class="quiz-result"></p>
+
+    </div>
+
+
+    <div class="quiz-question">
+
+      <strong>4. What is important when malaria is suspected?</strong>
+
+      <button onclick="answer(this, true)">
+        A. Appropriate testing and medical assessment
+      </button>
+
+      <button onclick="answer(this, false)">
+        B. Always taking any available medicine
+      </button>
+
+      <button onclick="answer(this, false)">
+        C. Ignoring symptoms
+      </button>
+
+      <p class="quiz-result"></p>
+
+    </div>
+
+  </section>
+
+
+  <!-- RELATED TOPICS -->
+
+  <section class="section">
+
+    <h2>🔗 Related Health Topics</h2>
+
+    <div class="related">
+
+      <a href="diseases.html">
+        🦠 Other Diseases
+      </a>
+
+      <a href="#">
+        🤒 Fever
+      </a>
+
+      <a href="#">
+        🩸 Anaemia
+      </a>
+
+      <a href="#">
+        👶 Child Health
+      </a>
+
+      <a href="#">
+        🤰 Pregnancy Health
+      </a>
+
+      <a href="#">
+        🦟 Mosquito-borne Diseases
+      </a>
+
+    </div>
+
+  </section>
+
 
   <a class="back-button" href="diseases.html">
     ← Back to Diseases
   </a>
 
-</div>
+
+</main>
+
 
 <footer>
-  © 2026 HealthSphere Africa. All rights reserved.
+
+  <strong>HealthSphere Africa</strong>
+
+  <p>
+    Medical education for better health understanding.
+  </p>
+
+  <p>
+    © 2026 HealthSphere Africa. All rights reserved.
+  </p>
+
 </footer>
+
+
+<script>
+
+  /* READ ALOUD */
+
+  function readArticle() {
+
+    if (!("speechSynthesis" in window)) {
+
+      alert("Read Aloud is not supported by this browser.");
+
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    const article = document.querySelector("main");
+
+    const text = article.innerText;
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.rate = 0.9;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+
+  }
+
+
+  function stopReading() {
+
+    if ("speechSynthesis" in window) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+  }
+
+
+  /* QUIZ */
+
+  function answer(button, correct) {
+
+    const result =
+      button.parentElement.querySelector(".quiz-result");
+
+    if (correct) {
+
+      result.textContent = "✅ Correct! Well done.";
+
+    } else {
+
+      result.textContent = "❌ Not quite. Try again.";
+
+    }
+
+  }
+
+</script>
+
 
 </body>
 </html>
