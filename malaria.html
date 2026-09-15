@@ -1469,7 +1469,35 @@
 let speechChunks = [];
 let currentChunk = 0;
 let speechStopped = false;
+function scrollToReadingSection() {
 
+  const article = document.querySelector("main");
+
+  if (!article) {
+    return;
+  }
+
+  const sections = article.querySelectorAll("section");
+
+  if (!sections.length) {
+    return;
+  }
+
+  const progress =
+    currentChunk / speechChunks.length;
+
+  const index =
+    Math.min(
+      sections.length - 1,
+      Math.floor(progress * sections.length)
+    );
+
+  sections[index].scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+
+}
 function getArticleText() {
 
   const article = document.querySelector("main");
@@ -1550,50 +1578,20 @@ function speakNextChunk() {
   speech.voice = voice;
 }
 
-/* FOLLOW ARTICLE WHILE READING */
-
-speech.onboundary = function () {
-
-  if (speechStopped) {
-    return;
-  }
-
-  const article = document.querySelector("main");
-
-  if (article) {
-    const sections = article.querySelectorAll("section");
-
-    if (sections.length > 0) {
-
-      const progress =
-        currentChunk / speechChunks.length;
-
-      const index =
-        Math.min(
-          sections.length - 1,
-          Math.floor(progress * sections.length)
-        );
-
-      sections[index].scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-
-    }
-  }
-
-};
 
 speech.onend = function () {
 
     currentChunk++;
 
     if (!speechStopped) {
+
+      scrollToReadingSection();
+
       speakNextChunk();
+
     }
 
   };
-
   speech.onerror = function () {
 
     speechStopped = true;
