@@ -1469,35 +1469,6 @@
 let speechChunks = [];
 let currentChunk = 0;
 let speechStopped = false;
-function scrollToReadingSection() {
-
-  const article = document.querySelector("main");
-
-  if (!article) {
-    return;
-  }
-
-  const sections = article.querySelectorAll("section");
-
-  if (!sections.length) {
-    return;
-  }
-
-  const progress =
-    currentChunk / speechChunks.length;
-
-  const index =
-    Math.min(
-      sections.length - 1,
-      Math.floor(progress * sections.length)
-    );
-
-  sections[index].scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-
-}
 function getArticleText() {
 
   const article = document.querySelector("main");
@@ -1585,7 +1556,10 @@ speech.onend = function () {
 
     if (!speechStopped) {
 
-      scrollToReadingSection();
+      window.scrollTo({
+        top: (document.body.scrollHeight / speechChunks.length) * currentChunk,
+        behavior: "smooth"
+      });
 
       speakNextChunk();
 
