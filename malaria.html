@@ -1464,44 +1464,182 @@
 
 
 <script>
-/* READ ALOUD */
+  /* READ ALOUD */
 
-  function readArticle() {
+let speechChunks = [];
+let currentChunk = 0;
+let speechStopped = false;
 
-    if (!("speechSynthesis" in window)) {
+function getArticleText() {
 
-      alert("Read Aloud is not supported by this browser.");
+  const article = document.querySelector("main");
 
-      return;
+  if (!article) {
+    return "";
+  }
+
+  return article.innerText
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function createSpeechChunks(text) {
+
+  const maxLength = 2200;
+  const chunks = [];
+  let remaining = text;
+
+  while (remaining.length > maxLength) {
+
+    let cut = remaining.lastIndexOf(". ", maxLength);
+
+    if (cut < 500) {
+      cut = remaining.lastIndexOf(" ", maxLength);
     }
 
+    if (cut < 1) {
+      cut = maxLength;
+    }
+
+    chunks.push(
+      remaining.substring(0, cut + 1).trim()
+    );
+
+    remaining = remaining
+      .substring(cut + 1)
+      .trim();
+  }
+
+  if (remaining.length > 0) {
+    chunks.push(remaining);
+  }
+
+  return chunks;
+}
+
+function speakNextChunk() {
+
+  if (
+    speechStopped ||
+    currentChunk >= speechChunks.length
+  ) {
+    return;
+  }
+
+  const speech =
+    new SpeechSynthesisUtterance(
+      speechChunks[currentChunk]
+    );
+
+  speech.rate = 0.9;
+  speech.pitch = 1;
+  speech.lang = "en-US";
+
+  const voices =
+    window.speechSynthesis.getVoices();
+
+  const voice =
+    voices.find(
+      v => v.lang === "en-US"
+    ) ||
+    voices.find(
+      v => v.lang.startsWith("en")
+    );
+
+  if (voice) {
+    speech.voice = voice;
+  }
+
+  speech.onend = function () {
+
+    currentChunk++;
+
+    if (!speechStopped) {
+      speakNextChunk();
+    }
+
+  };
+
+  speech.onerror = function () {
+
+    speechStopped = true;
+
+  };
+
+  window.speechSynthesis.speak(speech);
+}
+
+function readArticle() {
+
+  if (!("speechSynthesis" in window)) {
+
+    alert(
+      "Read Aloud is not supported by this browser."
+    );
+
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const text = getArticleText();
+
+  if (!text) {
+
+    alert("No article text was found.");
+
+    return;
+  }
+
+  speechChunks =
+    createSpeechChunks(text);
+
+  currentChunk = 0;
+  speechStopped = false;
+
+  const voices =
+    window.speechSynthesis.getVoices();
+
+  if (voices.length > 0) {
+
+    speakNextChunk();
+
+  } else {
+
+    window.speechSynthesis.onvoiceschanged =
+      function () {
+
+        window.speechSynthesis.onvoiceschanged = null;
+
+        if (!speechStopped) {
+          speakNextChunk();
+        }
+
+      };
+
+    setTimeout(function () {
+
+      if (
+        !speechStopped &&
+        !window.speechSynthesis.speaking
+      ) {
+        speakNextChunk();
+      }
+
+    }, 500);
+
+  }
+}
+
+function stopReading() {
+
+  speechStopped = true;
+
+  if ("speechSynthesis" in window) {
     window.speechSynthesis.cancel();
-
-    const article = document.querySelector("main");
-
-    const text = article.innerText;
-
-    const speech = new SpeechSynthesisUtterance(text);
-
-    speech.rate = 0.9;
-    speech.pitch = 1;
-
-    window.speechSynthesis.speak(speech);
-
   }
 
-
-  function stopReading() {
-
-    if ("speechSynthesis" in window) {
-
-      window.speechSynthesis.cancel();
-
-    }
-
-  }
-
-  
+}
 
   /* QUIZ */
 
