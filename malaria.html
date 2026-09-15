@@ -1547,10 +1547,44 @@ function speakNextChunk() {
     );
 
   if (voice) {
-    speech.voice = voice;
+  speech.voice = voice;
+}
+
+/* FOLLOW ARTICLE WHILE READING */
+
+speech.onboundary = function () {
+
+  if (speechStopped) {
+    return;
   }
 
-  speech.onend = function () {
+  const article = document.querySelector("main");
+
+  if (article) {
+    const sections = article.querySelectorAll("section");
+
+    if (sections.length > 0) {
+
+      const progress =
+        currentChunk / speechChunks.length;
+
+      const index =
+        Math.min(
+          sections.length - 1,
+          Math.floor(progress * sections.length)
+        );
+
+      sections[index].scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    }
+  }
+
+};
+
+speech.onend = function () {
 
     currentChunk++;
 
