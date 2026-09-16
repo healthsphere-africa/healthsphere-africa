@@ -1297,10 +1297,7 @@
         article aloud.
       </p>
 
-      <button onclick="readArticle()">
-        ▶ Start Reading
-      </button>
-
+      <button onclick="testScroll()">▶ Test Scroll</button>
       <button onclick="stopReading()">
         ■ Stop
       </button>
@@ -1464,6 +1461,12 @@
 
 
 <script>
+  function testScroll() {
+  window.scrollTo({
+    top: 1000,
+    behavior: "smooth"
+  });
+}
   /* READ ALOUD */
 
 let speechChunks = [];
