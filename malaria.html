@@ -1552,39 +1552,18 @@ function speakNextChunk() {
   speech.voice = voice;
 }
 
-
 speech.onend = function () {
 
     currentChunk++;
 
     if (!speechStopped) {
 
-      const sections =
-        document.querySelectorAll("main .section");
-
-      if (sections.length > 0) {
-
-        const progress =
-          currentChunk / speechChunks.length;
-
-        const index =
-          Math.min(
-            sections.length - 1,
-            Math.floor(progress * sections.length)
-          );
-
-        sections[index].scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-      }
-
       speakNextChunk();
 
     }
 
   };
+
   speech.onerror = function () {
 
     speechStopped = true;
