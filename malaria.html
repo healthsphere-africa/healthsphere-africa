@@ -1532,7 +1532,24 @@ function speakNextChunk() {
     new SpeechSynthesisUtterance(
       speechChunks[currentChunk]
     );
+ 
+  const sections = document.querySelectorAll("main section");
 
+if (sections.length > 0) {
+
+  const progress = currentChunk / speechChunks.length;
+
+  const index = Math.min(
+    sections.length - 1,
+    Math.floor(progress * sections.length)
+  );
+
+  sections[index].scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+
+}
   speech.rate = 0.9;
   speech.pitch = 1;
   speech.lang = "en-US";
