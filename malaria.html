@@ -1549,6 +1549,7 @@ function speakNextChunk() {
 }
 
 function readArticle() {
+console.log("readArticle started");
 
   if (!("speechSynthesis" in window)) {
     alert(
