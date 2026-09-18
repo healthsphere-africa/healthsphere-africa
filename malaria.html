@@ -1584,18 +1584,20 @@ speech.onend = function () {
 
     }
 
-    speakNextChunk();
+   speakNextChunk();
 
   }
 
 };
-  speech.onerror = function () {
 
-    speechStopped = true;
+speech.onerror = function () {
 
-  };
+  speechStopped = true;
 
-  window.speechSynthesis.speak(speech);
+};
+
+window.speechSynthesis.speak(speech);
+
 }
 
 function readArticle() {
