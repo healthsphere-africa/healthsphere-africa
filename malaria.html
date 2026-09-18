@@ -1547,8 +1547,10 @@ function speakNextChunk() {
   window.speechSynthesis.speak(speech);
 
 }
-  if (!("speechSynthesis" in window)) {
 
+function readArticle() {
+
+  if (!("speechSynthesis" in window)) {
     alert(
       "Read Aloud is not supported by this browser."
     );
