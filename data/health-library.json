@@ -1,0 +1,199 @@
+
+{
+  "catalogueVersion": 1,
+  "siteName": "HealthSphere Africa",
+  "defaultLanguage": "en",
+  "languagesPlanned": ["en", "yo", "ha", "ig"],
+  "categories": [
+    {"id": "diseases", "name": "Diseases & Conditions", "prefix": "DS"},
+    {"id": "symptoms", "name": "Symptoms & Signs", "prefix": "SYM"},
+    {"id": "prevention", "name": "Prevention", "prefix": "PRE"},
+    {"id": "healthy-living", "name": "Healthy Living", "prefix": "HL"},
+    {"id": "organs", "name": "Body Organs", "prefix": "ORG"},
+    {"id": "systems", "name": "Body Systems", "prefix": "SYS"},
+    {"id": "laboratory", "name": "Laboratory Tests", "prefix": "LAB"},
+    {"id": "medicines", "name": "Medicines", "prefix": "DRG"},
+    {"id": "maternal-health", "name": "Pregnancy & Maternal Health", "prefix": "PMH"},
+    {"id": "child-health", "name": "Child Health", "prefix": "CH"},
+    {"id": "family-planning", "name": "Family Planning", "prefix": "FP"},
+    {"id": "immunization", "name": "Immunization", "prefix": "IMM"},
+    {"id": "nutrition", "name": "Nutrition", "prefix": "NUT"},
+    {"id": "mental-wellbeing", "name": "Mental & Emotional Wellbeing", "prefix": "MW"},
+    {"id": "first-aid", "name": "First Aid & Emergencies", "prefix": "FA"},
+    {"id": "screening", "name": "Health Screening", "prefix": "SCR"},
+    {"id": "oral-health", "name": "Oral Health", "prefix": "ORH"},
+    {"id": "eye-health", "name": "Eye Health", "prefix": "EYH"},
+    {"id": "skin-hair", "name": "Skin & Hair Health", "prefix": "SKH"},
+    {"id": "healthy-ageing", "name": "Healthy Ageing", "prefix": "AGE"}
+  ],
+  "topics": [
+    {
+      "id": "DS001",
+      "title": "Malaria",
+      "category": "diseases",
+      "path": "malaria.html",
+      "status": "published",
+      "relatedTopicIds": [
+        "DS002", "SYM001", "SYM002", "PRE001",
+        "LAB002", "ORG002", "PMH001", "CH001"
+      ],
+      "features": {
+        "summary": true,
+        "infographic": "planned",
+        "mechanismDiagram": "planned",
+        "patientScenario": "planned",
+        "quiz": true,
+        "readAloud": true
+      }
+    },
+    {
+      "id": "DS002",
+      "title": "Typhoid Fever",
+      "category": "diseases",
+      "path": "typhoid.html",
+      "status": "published",
+      "relatedTopicIds": ["DS001", "SYM001", "LAB003"],
+      "features": {
+        "summary": "planned",
+        "infographic": "planned",
+        "mechanismDiagram": "planned",
+        "patientScenario": "planned",
+        "quiz": "planned",
+        "readAloud": "planned"
+      }
+    },
+    {
+      "id": "DS003",
+      "title": "Hypertension",
+      "category": "diseases",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["ORG001", "SYS001", "LAB001"],
+      "features": {
+        "summary": "planned",
+        "infographic": "planned",
+        "mechanismDiagram": "planned",
+        "patientScenario": "planned",
+        "quiz": "planned",
+        "readAloud": "planned"
+      }
+    },
+    {
+      "id": "SYM001",
+      "title": "Fever",
+      "category": "symptoms",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS001", "DS002"]
+    },
+    {
+      "id": "SYM002",
+      "title": "Headache",
+      "category": "symptoms",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS001"]
+    },
+    {
+      "id": "PRE001",
+      "title": "Malaria Prevention",
+      "category": "prevention",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS001", "CH001", "PMH001", "IMM001"]
+    },
+    {
+      "id": "HL001",
+      "title": "Healthy Sleep",
+      "category": "healthy-living",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": []
+    },
+    {
+      "id": "ORG001",
+      "title": "Heart",
+      "category": "organs",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS003", "SYS001", "LAB001"]
+    },
+    {
+      "id": "ORG002",
+      "title": "Liver",
+      "category": "organs",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS001"]
+    },
+    {
+      "id": "SYS001",
+      "title": "Cardiovascular System",
+      "category": "systems",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["ORG001", "DS003"]
+    },
+    {
+      "id": "LAB001",
+      "title": "Full Blood Count",
+      "category": "laboratory",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS001", "ORG001", "DS003"]
+    },
+    {
+      "id": "LAB002",
+      "title": "Malaria Test",
+      "category": "laboratory",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS001"]
+    },
+    {
+      "id": "LAB003",
+      "title": "Typhoid Fever Investigations",
+      "category": "laboratory",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS002"]
+    },
+    {
+      "id": "PMH001",
+      "title": "Malaria in Pregnancy",
+      "category": "maternal-health",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS001", "PRE001"]
+    },
+    {
+      "id": "CH001",
+      "title": "Malaria in Children",
+      "category": "child-health",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS001", "PRE001"]
+    },
+    {
+      "id": "IMM001",
+      "title": "Malaria Vaccination",
+      "category": "immunization",
+      "path": null,
+      "status": "planned",
+      "relatedTopicIds": ["DS001", "PRE001"]
+    }
+  ],
+  "futureModules": [
+    "interactive-human-body",
+    "patient-scenarios",
+    "medical-infographics",
+    "physiology-diagrams",
+    "healthsphere-ai",
+    "health-news",
+    "learning-paths",
+    "medical-glossary",
+    "bookmarks-and-progress",
+    "multilingual-content",
+    "moderated-community"
+  ]
+}
