@@ -1,11 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the HealthSphere Africa medical education library covering diseases, symptoms, body organs, laboratory tests, medicines and healthy living.">
   <title>Medical Education Library | HealthSphere Africa</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -20,6 +26,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     header h1 {
@@ -27,16 +35,25 @@
       font-size: 28px;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 25px;
       font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .hero {
       text-align: center;
-      padding: 55px 20px 35px;
+      padding: 55px 20px 30px;
     }
 
     .hero h2 {
@@ -47,45 +64,63 @@
     .hero p {
       font-size: 18px;
       color: #456;
+      line-height: 1.6;
+      max-width: 750px;
+      margin: 0 auto;
     }
 
     .search-box {
       text-align: center;
-      margin: 20px auto 40px;
+      margin: 20px auto 30px;
+      padding: 0 15px;
     }
 
     .search-box input {
-      width: 70%;
-      max-width: 600px;
+      width: 90%;
+      max-width: 650px;
       padding: 15px;
-      border: 1px solid #ccc;
+      border: 1px solid #cbd8d5;
       border-radius: 8px;
       font-size: 16px;
+      background: white;
     }
 
     .library {
       width: 90%;
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
-      padding-bottom: 60px;
+      padding-bottom: 50px;
+    }
+
+    .section-heading {
+      margin: 25px 0 18px;
+      color: #163b4d;
     }
 
     .library-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
+      gap: 22px;
     }
 
     .card {
       background: white;
-      padding: 25px;
+      padding: 24px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+      border: 1px solid #e5eeeb;
+    }
+
+    .category-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .card h3 {
       color: #07875f;
       margin-top: 0;
+      line-height: 1.35;
     }
 
     .card p {
@@ -93,40 +128,153 @@
       color: #456;
     }
 
-    .card a {
+    .category-count {
+      color: #58756b;
+      font-size: 13px;
+      margin: 0 0 12px;
+    }
+
+    .card button,
+    .card .button-link {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: auto;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
       background: #07875f;
       color: white;
-      padding: 10px 16px;
-      border-radius: 6px;
       text-decoration: none;
+      font-size: 14px;
       font-weight: bold;
+      cursor: pointer;
+    }
+
+    .card button:hover,
+    .card .button-link:hover {
+      background: #056b4b;
+    }
+
+    .topic-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+    }
+
+    .topic-card {
+      background: white;
+      border: 1px solid #e1ebe7;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .topic-id {
+      color: #627c73;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .topic-card h3 {
+      margin: 8px 0;
+      color: #07875f;
+    }
+
+    .topic-status {
+      display: inline-block;
+      margin: 5px 0 12px;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #e4f5ec;
+      color: #176443;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .topic-status.planned {
+      background: #f1f0e8;
+      color: #665a2d;
+    }
+
+    .topic-card p {
+      color: #456;
+      line-height: 1.5;
+    }
+
+    .topic-card a {
+      color: #07875f;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .topic-card a:hover {
+      text-decoration: underline;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .toolbar button {
+      background: #e2f1ec;
+      border: 1px solid #b8d9cc;
+      color: #075e43;
+      padding: 9px 13px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .toolbar button:hover {
+      background: #cfe9de;
+    }
+
+    #resultMessage {
+      color: #456;
+      line-height: 1.5;
+    }
+
+    .message {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
+    .error-message {
+      border-left: 4px solid #b84a3a;
     }
 
     footer {
       text-align: center;
       background: #e5f3ef;
       padding: 25px;
-      margin-top: 30px;
+      margin-top: 20px;
+      line-height: 1.6;
     }
 
     @media (max-width: 700px) {
       header {
         flex-direction: column;
-        gap: 15px;
+        text-align: center;
       }
 
-      nav a {
-        margin: 0 8px;
+      nav {
+        justify-content: center;
+        gap: 14px;
       }
 
       .hero h2 {
         font-size: 28px;
       }
 
-      .search-box input {
-        width: 85%;
+      .library {
+        width: 92%;
       }
     }
   </style>
@@ -137,7 +285,7 @@
   <header>
     <h1>HealthSphere Africa</h1>
 
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="medical-library.html">Medical Library</a>
       <a href="about.html">About</a>
@@ -146,125 +294,323 @@
 
   <section class="hero">
     <h2>Medical Education Library</h2>
-
     <p>
-      Reliable, clear and easy-to-understand health information
-      for everyone.
+      Explore health information, understand the human body,
+      learn about diseases and tests, and discover practical ways
+      to protect your health.
     </p>
   </section>
 
   <div class="search-box">
     <input
-      type="text"
+      type="search"
       id="searchInput"
-      placeholder="Search the medical library..."
-      onkeyup="searchLibrary()"
+      placeholder="Search diseases, symptoms, organs, tests, medicines..."
+      aria-label="Search the medical library"
     >
   </div>
 
-  <section class="library">
+  <main class="library">
 
-    <div class="library-grid">
+    <section aria-labelledby="categoriesHeading">
+      <h2 class="section-heading" id="categoriesHeading">
+        Explore Health Topics
+      </h2>
 
-      <div class="card" onclick="window.location.href='diseases.html'" style="cursor: pointer;">
-        <h3>Diseases & Conditions</h3>
-        <p>
-          Learn about common diseases, their symptoms,
-          causes, prevention and treatment.
-        </p>
-        <a href="diseases.html">Explore Diseases</a>
+      <div class="library-grid" id="categoryGrid">
+        <div class="message">Loading library categories...</div>
+      </div>
+    </section>
+
+    <section aria-labelledby="topicsHeading">
+      <div class="toolbar">
+        <h2 class="section-heading" id="topicsHeading">
+          Browse the Catalogue
+        </h2>
+
+        <button type="button" id="showAllButton">
+          Show All Topics
+        </button>
       </div>
 
-      <div class="card">
-        <h3>Symptoms</h3>
-        <p>
-          Understand common symptoms and learn when
-          medical attention may be needed.
-        </p>
-        <a href="#">Explore Symptoms</a>
-      </div>
+      <p id="resultMessage" aria-live="polite">
+        Loading health topics...
+      </p>
 
-      <div class="card">
-        <h3>Prevention</h3>
-        <p>
-          Practical information about preventing illness
-          and protecting your health.
-        </p>
-        <a href="#">Explore Prevention</a>
-      </div>
+      <div class="topic-list" id="topicList"></div>
+    </section>
 
-      <div class="card">
-        <h3>Healthy Living</h3>
-        <p>
-          Information about nutrition, physical activity,
-          lifestyle and general wellbeing.
-        </p>
-        <a href="#">Explore Healthy Living</a>
-      </div>
-
-      <div class="card">
-        <h3>Pregnancy & Maternal Health</h3>
-        <p>
-          Educational information about pregnancy,
-          maternal health and important pregnancy conditions.
-        </p>
-        <a href="#">Explore Pregnancy Health</a>
-      </div>
-
-      <div class="card">
-        <h3>Laboratory Tests</h3>
-        <p>
-          Understand common laboratory tests and what
-          different results may mean.
-        </p>
-        <a href="#">Explore Laboratory Tests</a>
-      </div>
-
-      <div class="card">
-        <h3>Medications</h3>
-        <p>
-          Learn about commonly used medicines, their
-          purposes, precautions and safe use.
-        </p>
-        <a href="#">Explore Medications</a>
-      </div>
-
-      <div class="card">
-        <h3>Health & Fitness</h3>
-        <p>
-          Learn about physical activity, healthy habits
-          and maintaining overall wellbeing.
-        </p>
-        <a href="#">Explore Health & Fitness</a>
-      </div>
-
-    </div>
-
-  </section>
+  </main>
 
   <footer>
-    © 2026 HealthSphere Africa. All rights reserved.
+    <p>© 2026 HealthSphere Africa. All rights reserved.</p>
+    <p>
+      Health information on this website is for education and does
+      not replace advice from a qualified healthcare professional.
+    </p>
   </footer>
 
   <script>
-    function searchLibrary() {
-      const input = document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase();
+    const catalogueUrl = "data/health-library.json";
 
-      const cards = document.querySelectorAll(".card");
+    const categoryDescriptions = {
+      "diseases":
+        "Explore diseases and conditions, their causes, symptoms, prevention and management.",
 
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
+      "symptoms":
+        "Understand symptoms and warning signs, and learn when medical attention may be needed.",
 
-        if (text.includes(input)) {
-          card.style.display = "";
-        } else {
-          card.style.display = "none";
+      "prevention":
+        "Discover evidence-informed ways to reduce health risks and prevent illness.",
+
+      "healthy-living":
+        "Explore healthy habits, physical activity, sleep and everyday wellbeing.",
+
+      "organs":
+        "Discover how individual organs work and how they support the body.",
+
+      "systems":
+        "Learn how the body's organs work together in connected systems.",
+
+      "laboratory":
+        "Understand common laboratory tests and what their results can and cannot tell you.",
+
+      "medicines":
+        "Learn about medicines, their purposes, precautions and safe use.",
+
+      "maternal-health":
+        "Explore pregnancy, maternal health and important pregnancy-related conditions.",
+
+      "child-health":
+        "Learn about children's health, common illnesses, growth and prevention.",
+
+      "family-planning":
+        "Understand family-planning options and reproductive health.",
+
+      "immunization":
+        "Explore vaccines, immunization and protection against preventable diseases.",
+
+      "nutrition":
+        "Learn about food, nutrients, balanced diets and healthy eating.",
+
+      "mental-wellbeing":
+        "Explore emotional wellbeing, mental health and when to seek support.",
+
+      "first-aid":
+        "Learn basic first-aid principles and how to respond to emergencies safely.",
+
+      "screening":
+        "Understand health screening and early detection of selected conditions.",
+
+      "oral-health":
+        "Explore dental care, gum health and ways to protect your mouth.",
+
+      "eye-health":
+        "Learn about vision, eye conditions and eye care.",
+
+      "skin-hair":
+        "Explore skin and hair health, common conditions and care.",
+
+      "healthy-ageing":
+        "Discover ways to support health, independence and wellbeing as you age."
+    };
+
+    let catalogue = null;
+    let selectedCategory = "";
+
+    const categoryGrid = document.getElementById("categoryGrid");
+    const topicList = document.getElementById("topicList");
+    const searchInput = document.getElementById("searchInput");
+    const resultMessage = document.getElementById("resultMessage");
+
+    async function loadCatalogue() {
+      try {
+        const response = await fetch(catalogueUrl);
+
+        if (!response.ok) {
+          throw new Error("The catalogue file could not be loaded.");
         }
+
+        catalogue = await response.json();
+
+        if (!Array.isArray(catalogue.categories) ||
+            !Array.isArray(catalogue.topics)) {
+          throw new Error("The catalogue format is not valid.");
+        }
+
+        renderCategories();
+        renderTopics();
+      } catch (error) {
+        categoryGrid.innerHTML = "";
+        topicList.innerHTML = "";
+
+        const message = document.createElement("div");
+        message.className = "message error-message";
+        message.textContent =
+          "The medical catalogue could not be loaded. Please refresh the page and try again.";
+
+        categoryGrid.appendChild(message);
+        resultMessage.textContent = "The library is temporarily unavailable.";
+      }
+    }
+
+    function renderCategories() {
+      categoryGrid.innerHTML = "";
+
+      catalogue.categories.forEach(category => {
+        const card = document.createElement("article");
+        card.className = "card category-card";
+
+        const title = document.createElement("h3");
+        title.textContent = category.name;
+
+        const description = document.createElement("p");
+        description.textContent =
+          categoryDescriptions[category.id] ||
+          "Explore educational resources in this health category.";
+
+        const categoryTopics = catalogue.topics.filter(
+          topic => topic.category === category.id
+        );
+
+        const publishedCount = categoryTopics.filter(
+          topic => topic.status === "published" && topic.path
+        ).length;
+
+        const count = document.createElement("p");
+        count.className = "category-count";
+        count.textContent =
+          categoryTopics.length + " catalogue topic(s) · " +
+          publishedCount + " published";
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = "Browse Topics";
+        button.addEventListener("click", () => {
+          selectedCategory = category.id;
+          renderTopics();
+
+          document.getElementById("topicsHeading").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        });
+
+        card.append(title, description, count, button);
+        categoryGrid.appendChild(card);
       });
     }
+
+    function renderTopics() {
+      if (!catalogue) return;
+
+      const searchTerm = searchInput.value.trim().toLowerCase();
+
+      const filteredTopics = catalogue.topics.filter(topic => {
+        const category = catalogue.categories.find(
+          item => item.id === topic.category
+        );
+
+        const categoryName = category ? category.name : "";
+
+        const matchesCategory =
+          !selectedCategory || topic.category === selectedCategory;
+
+        const searchableText = [
+          topic.id,
+          topic.title,
+          topic.category,
+          categoryName,
+          ...(topic.relatedTopicIds || [])
+        ].join(" ").toLowerCase();
+
+        return matchesCategory && searchableText.includes(searchTerm);
+      });
+
+      topicList.innerHTML = "";
+
+      if (selectedCategory) {
+        const category = catalogue.categories.find(
+          item => item.id === selectedCategory
+        );
+
+        resultMessage.textContent =
+          "Showing topics in " +
+          (category ? category.name : selectedCategory) +
+          ": " + filteredTopics.length;
+      } else {
+        resultMessage.textContent =
+          "Showing " + filteredTopics.length +
+          " of " + catalogue.topics.length + " catalogue topics.";
+      }
+
+      if (filteredTopics.length === 0) {
+        const emptyMessage = document.createElement("div");
+        emptyMessage.className = "message";
+        emptyMessage.textContent =
+          "No matching topics found. Try another search or show all topics.";
+
+        topicList.appendChild(emptyMessage);
+        return;
+      }
+
+      filteredTopics.forEach(topic => {
+        const card = document.createElement("article");
+        card.className = "topic-card";
+
+        const category = catalogue.categories.find(
+          item => item.id === topic.category
+        );
+
+        const id = document.createElement("div");
+        id.className = "topic-id";
+        id.textContent = topic.id;
+
+        const title = document.createElement("h3");
+        title.textContent = topic.title;
+
+        const status = document.createElement("span");
+        const isPublished =
+          topic.status === "published" &&
+          typeof topic.path === "string" &&
+          topic.path.length > 0;
+
+        status.className =
+          "topic-status" + (isPublished ? "" : " planned");
+
+        status.textContent = isPublished ? "Available to read" : "Coming soon";
+
+        const categoryText = document.createElement("p");
+        categoryText.textContent =
+          category ? category.name : "Health topic";
+
+        card.append(id, title, status, categoryText);
+
+        if (isPublished) {
+          const link = document.createElement("a");
+          link.href = topic.path;
+          link.textContent = "Read article";
+          card.appendChild(link);
+        } else {
+          const note = document.createElement("p");
+          note.textContent =
+            "This topic is in the catalogue and will be developed for the library.";
+          card.appendChild(note);
+        }
+
+        topicList.appendChild(card);
+      });
+    }
+
+    searchInput.addEventListener("input", renderTopics);
+
+    document.getElementById("showAllButton").addEventListener("click", () => {
+      selectedCategory = "";
+      searchInput.value = "";
+      renderTopics();
+    });
+
+    loadCatalogue();
   </script>
 
 </body>
