@@ -601,7 +601,9 @@
         topicList.appendChild(card);
       });
     }
-
+searchInput.addEventListener("input", () => {
+  alert("Search detected: " + searchInput.value);
+});
     searchInput.addEventListener("input", renderTopics);
 
     document.getElementById("showAllButton").addEventListener("click", () => {
