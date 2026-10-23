@@ -601,8 +601,9 @@
         topicList.appendChild(card);
       });
     }
-    searchInput.addEventListener("input", renderTopics);
-
+    searchInput.oninput = function () {
+  renderTopics();
+};
     document.getElementById("showAllButton").addEventListener("click", () => {
       selectedCategory = "";
       searchInput.value = "";
